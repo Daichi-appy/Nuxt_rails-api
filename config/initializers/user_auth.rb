@@ -3,7 +3,7 @@ module UserAuth
   self.token_lifetime = 2.week
 
   mattr_accessor :token_audience
-  self.token_audience => {
+  self.token_audience = -> {
     #
     ENV["APP_URL"]
   }
