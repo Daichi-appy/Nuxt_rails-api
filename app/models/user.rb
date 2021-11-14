@@ -31,6 +31,10 @@ class User < ApplicationRecord
     users.find_activated(email).present?
   end
 
+  def my_json
+    as_json(only: [:id, :name, :email, :created_at])
+  end
+
   private
     # email小文字化
     def downcase_email
