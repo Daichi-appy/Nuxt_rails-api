@@ -9,9 +9,9 @@ Rails.application.routes.draw do
 
       # login, logout
       resources :user_token, only: [:create] do
-        delete :destroy, on: :colloection
+        delete :destroy, on: :collection
       end
-      
+
     end
   end
 end
