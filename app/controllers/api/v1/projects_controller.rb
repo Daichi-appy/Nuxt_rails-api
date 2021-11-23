@@ -3,7 +3,7 @@ class Api::V1::ProjectsController < ApplicationController
 
   def index
     # 本来はDBから取得する => current_user.project
-    projects = Project.all
+    projects = Project.where(user_id: current_user.id)
       # { id: 1, name: 'Rails MyProject01', updatedAt: '2020-04-01T12:00:00+09:00' },
       # { id: 2, name: 'Rails MyProject02', updatedAt: '2020-04-05T12:00:00+09:00' },
       # { id: 3, name: 'Rails MyProject03', updatedAt: '2020-04-03T12:00:00+09:00' },
