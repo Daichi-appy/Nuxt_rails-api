@@ -3,6 +3,7 @@ require "validator/email_validator"
 class User < ApplicationRecord
   include UserAuth::Tokenizable
   before_validation :downcase_email
+  has_many :projects, dependent: :destroy
   # gem bcrypt
   has_secure_password
   validates :name, presence: true, length: { maximum: 30, allow_blank: true}
