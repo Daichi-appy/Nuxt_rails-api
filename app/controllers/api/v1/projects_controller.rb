@@ -14,4 +14,20 @@ class Api::V1::ProjectsController < ApplicationController
     
     render json: projects
   end
+
+  def create
+    project = Project.new(project_params)
+    if project.save
+      render json: { status: 'Success', data: project }
+    else
+      render json: { status: 'Error', data: project.errors}
+    end
+  end
+
+  private
+
+    def project_params
+      params.require(:project).permit(:name).merge(user_id: current_user.id)
+    end
+    
 end
