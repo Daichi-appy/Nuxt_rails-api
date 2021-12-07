@@ -12,7 +12,7 @@ Rails.application.routes.draw do
         delete :destroy, on: :collection
       end
       
-      resources :projects, only: [:index, :create]
+      resources :projects, only: [:index, :create, :destroy]
     end
   end
 end

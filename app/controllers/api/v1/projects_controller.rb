@@ -1,5 +1,6 @@
 class Api::V1::ProjectsController < ApplicationController
   before_action :authenticate_user
+  before_action :set_project, only: [:destroy]
 
   def index
     # 本来はDBから取得する => current_user.project
@@ -24,10 +25,22 @@ class Api::V1::ProjectsController < ApplicationController
     end
   end
 
+  def destroy
+    if @project.destroy
+      render json: { status: 'Deleted' }
+    else
+      render json: { status: 'Error'} 
+    end
+  end
+
   private
 
     def project_params
       params.require(:project).permit(:name).merge(user_id: current_user.id)
     end
-    
+
+    def set_project
+      @project = Project.find(params[:id])
+    end
+
 end
