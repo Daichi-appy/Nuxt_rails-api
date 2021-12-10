@@ -6,6 +6,12 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def create
+    task = Task.new(task_params)
+    if task.save
+      render json: { status: 'Success', data: task }
+    else
+      render json: { status: 'Error', data: task.errors }
+    end  
   end
 
   def destroy
@@ -13,8 +19,8 @@ class Api::V1::TasksController < ApplicationController
 
   private
 
-    # def task_params
-    #   params.require(:task).permit(:title, :project_id)
-    # end
+    def task_params
+      params.require(:task).permit(:title, :project_id)
+    end
 
 end

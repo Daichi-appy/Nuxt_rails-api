@@ -21,7 +21,7 @@ class Api::V1::ProjectsController < ApplicationController
     if project.save
       render json: { status: 'Success', data: project }
     else
-      render json: { status: 'Error', data: project.errors}
+      render json: { status: 'Error', data: project.errors }
     end
   end
 
