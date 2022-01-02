@@ -1,6 +1,6 @@
 class Api::V1::TasksController < ApplicationController
   before_action :authenticate_user
-  before_action :set_task, only: [:destroy]
+  before_action :set_task, only: [:update, :destroy]
 
   def index
     tasks = Task.where(project_id: params[:project_id])
@@ -14,6 +14,10 @@ class Api::V1::TasksController < ApplicationController
     else
       render json: { status: 'Error', data: task.errors }
     end  
+  end
+
+  def update
+    @task.update(task_params)
   end
 
   def destroy
