@@ -3,26 +3,17 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.0.4', '>= 6.0.4.1'
-# Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
-# Use Puma as the app server
 gem 'puma', '~> 4.1'
-
 gem 'bootsnap', '>= 1.4.2', require: false
-
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 # コンソール出力結果を表にする Doc: https://github.com/cldwalker/hirb
 gem 'hirb', '~> 0.7.3'
 # コンソール文字列補正 Doc: https://github.com/steakknife/hirb-unicode
 gem 'hirb-unicode-steakknife', '~> 0.0.9'
 
-# パスワード暗号化 Doc: https://github.com/codahale/bcrypt-ruby
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
-
-# JWT Doc: https://github.com/jwt/ruby-jwt
 gem 'jwt', '~> 2.2'
 
 # CookieのSameSite属性をNoneにする(Chrome 80対応)
@@ -30,23 +21,18 @@ gem 'jwt', '~> 2.2'
 gem 'rails_same_site_cookie'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # デバッグbinding.pry Doc: https://github.com/deivid-rodriguez/pry-byebug
   gem 'pry-byebug', '~> 3.9'
+  # テスト結果色付け Doc: https://github.com/kern/minitest-reporters
+  gem 'minitest-reporters', '~> 1.1', '>= 1.1.11'
 end
 
 group :development do
   gem 'listen', '~> 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :test do
-  # テスト結果色付け Doc: https://github.com/kern/minitest-reporters
-  gem 'minitest-reporters', '~> 1.1', '>= 1.1.11'
-end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
