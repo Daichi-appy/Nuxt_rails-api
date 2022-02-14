@@ -26,6 +26,7 @@ group :development, :test do
   # テスト結果色付け Doc: https://github.com/kern/minitest-reporters
   gem 'minitest-reporters', '~> 1.1', '>= 1.1.11'
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'factory_bot_rails'
 end
 
 group :development do
