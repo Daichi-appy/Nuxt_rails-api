@@ -25,6 +25,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.9'
   # テスト結果色付け Doc: https://github.com/kern/minitest-reporters
   gem 'minitest-reporters', '~> 1.1', '>= 1.1.11'
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do
